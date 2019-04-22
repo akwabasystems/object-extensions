@@ -1,0 +1,86 @@
+import Extensions from "../../index";
+
+
+describe("Object extensions", () => {
+
+    it("should identify the type of an object", () => {
+        const F = () => {};
+        const undefinedVar = undefined;
+        const definedVar = {};
+
+        expect(Extensions.isArray([])).toBeTruthy();
+        expect(Extensions.isString("Akwaba")).toBeTruthy();
+        expect(Extensions.isNumber(2019)).toBeTruthy();
+        expect(Extensions.isFunction(F)).toBeTruthy();
+        expect(Extensions.isDefined(definedVar)).toBeTruthy();
+        expect(Extensions.isUndefined(undefinedVar)).toBeTruthy();
+    });
+
+    it("should return an abstract function", () => {
+        try {
+
+            const callback = Extensions.abstractFunction();
+            callback();
+
+        } catch (e) {
+            expect(e.message).toBe("This method is abstract and must be implemented.");
+        }
+    });
+
+    it("should specify whether an object has a given method", () => {
+        const config = {
+            version: "1.0",
+            init: () => {}
+        };
+
+        expect(Extensions.hasMethod(config, "init")).toBeTruthy();
+        expect(Extensions.hasMethod(config, "version")).toBeFalsy();
+    });
+
+    it("should specify whether an object implements a given interface", () => {
+        const protocol = {
+            requiredMethods: ["initialize", "render", "handleActions"]
+        };
+
+        let component = {
+            init: () => {},
+            render: () => {}
+        };
+
+        expect(Extensions.implementsInterface(component, {})).toBeFalsy();
+        expect(Extensions.implementsInterface(component, protocol)).toBeFalsy();
+
+        component = {
+            initialize: () => {},
+            render: () => {},
+            handleActions: () => {}
+        };
+        expect(Extensions.implementsInterface(component, protocol)).toBeTruthy();
+    });
+
+    it("should create an array from the items in the given object", () => {
+        let items = {
+            length: 3,
+            "0": 1, 
+            "1": 2,
+            "2": 3
+        };
+        let itemList = Extensions.arrayFrom(items);
+        
+        expect(Extensions.isArray(itemList)).toBeTruthy();
+        expect(itemList).toEqual([1, 2, 3]);
+
+        items = {};
+        itemList = Extensions.arrayFrom(items);
+        expect(itemList).toEqual([]);
+
+        items = {
+            toArray: () => {
+                return [4, 5];
+            }
+        };
+        itemList = Extensions.arrayFrom(items);
+        expect(itemList).toEqual([4, 5]);
+    });
+
+});
