@@ -1,4 +1,4 @@
-# @akwaba/object
+# @akwaba/object-extensions
 
 ## Overview
 
@@ -46,6 +46,24 @@ Published on [npmjs.com](https://www.npmjs.com) as `@akwaba/object-extensions`.
 - `Array.partition(array, iterator, context)` - Partitions the elements of the specified array into two groups based on the invocation of the given iterator: the ones that return true and those that return false.
 
 
+### Number static methods
+
+- `Number.seconds(number)` - Returns the number of seconds represented by the given number
+- `Number.minutes(number)` - Returns the number of minutes represented by the given number
+- `Number.hours(number)` - Returns the number of hours represented by the given number
+- `Number.days(number)` - Returns the number of days represented by the given number
+- `Number.weeks(number)` - Returns the number of weeks represented by the given number
+- `Number.months(number)` - Returns the number of months represented by the given number
+- `Number.years(number)` - Returns the number of years represented by the given number
+- `Number.toDate(number)` - Converts the given number to a date
+- `Number.times(number, iterator, context)` - Invokes the given iterator for the specified number of times
+- `Number.toPaddedString(number, length, radix = 10)` - Pads the given number with zeros
+- `Number.to(number, target, step = 1)` - Creates a range of numbers to the specified target
+- `Number.upTo(number, target, step = 1)` - Creates a range of numbers up to the specified target
+- `Number.downTo(number, target, step = 1)` - Creates a range of numbers down to the specified target
+- `Number.toChar(number)` - Returns the ASCII character corresponding to the given number
+
+
 
 ### Usage
 
@@ -57,6 +75,7 @@ import Extensions from '@akwaba/object-extensions';
 
 // Do something with the module
 console.log("isArray: ", Extensions.isArray([]));   // isArray: true
+
 
 // Note: Array and Function static methods are automatically imported 
 // as part of the module import; so they can be used right away.
