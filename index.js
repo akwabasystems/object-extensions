@@ -1,3 +1,6 @@
+import "./src/functions";
+import "./src/arrays";
+
 import abstractFunction     from "./src/abstract-function";
 import arrayFrom            from "./src/array-from";
 import getClass             from "./src/get-class";
@@ -9,6 +12,9 @@ import isFunction           from "./src/is-function";
 import isNumber             from "./src/is-number";
 import isString             from "./src/is-string";
 import isUndefined          from "./src/is-undefined";
+import objectFrom           from "./src/object-from";
+import copyPropertiesFrom   from "./src/copy-from";
+import makeIterable         from "./src/make-iterable";
 
 
 export default {
@@ -22,5 +28,8 @@ export default {
     isFunction,
     isNumber,
     isString,
-    isUndefined
+    isUndefined,
+    objectFrom,
+    copyPropertiesFrom,
+    makeIterable
 };
