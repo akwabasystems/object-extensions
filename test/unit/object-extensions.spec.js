@@ -83,4 +83,59 @@ describe("Object extensions", () => {
         expect(itemList).toEqual([4, 5]);
     });
 
+    it("should create an object from a list of keys and values", () => {
+        const keys = ["name", "version", "describe"];
+        const values = ["1UA", "1.0", () => "A cool app"];
+        const app = Extensions.objectFrom(keys, values);
+
+        expect(app.name).toBe("1UA");
+        expect(app.version).toBe("1.0");
+        expect(Extensions.isFunction(app.describe)).toBeTruthy();
+        expect(app.describe()).toBe("A cool app");
+    });
+
+    it("should copy own keys from an object to another", () => {
+        const source = {
+            "name": "1UA", 
+            "version": "1.0", 
+            "describe": () => "A cool app"
+        };
+        const destination = Extensions.copyPropertiesFrom(source);
+
+        expect(destination.name).toBe("1UA");
+        expect(destination.version).toBe("1.0");
+        expect(Extensions.isFunction(destination.describe)).toBeTruthy();
+        expect(destination.describe()).toBe("A cool app");
+    });
+
+    it("should make the properties of an object iterable", () => {
+        const steps = {
+            "1": "Create package.json file", 
+            "2": "Add dependencies", 
+            "3": "Run npm install"
+        };
+        Extensions.makeIterable(steps);
+
+        let iterator = steps[Symbol.iterator]();
+        let currentStep = iterator.next();
+        expect(currentStep.value).toBeUndefined();
+        expect(currentStep.done).toBeTruthy();
+
+        Extensions.makeIterable(steps, ["1", "2", "3"]);
+        iterator = steps[Symbol.iterator]();
+        expect(iterator).toBeDefined();
+    
+        currentStep = iterator.next();
+        expect(currentStep).toEqual({value: "Create package.json file", done: false});
+        
+        currentStep = iterator.next();
+        expect(currentStep).toEqual({value: "Add dependencies", done: false});
+
+        currentStep = iterator.next();
+        expect(currentStep).toEqual({value: "Run npm install", done: false});
+
+        currentStep = iterator.next();
+        expect(currentStep.done).toBeTruthy();
+    });
+
 });
