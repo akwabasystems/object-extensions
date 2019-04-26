@@ -64,6 +64,23 @@ Published on [npmjs.com](https://www.npmjs.com) as `@akwaba/object-extensions`.
 - `Number.toChar(number)` - Returns the ASCII character corresponding to the given number
 
 
+### String static methods
+
+- `String.trim(string)` - Removes all leading and trailing spaces from the given string
+- `String.truncate(string, length = 30, truncation = "...")` - Truncates this string to the specified length and according to the given pattern
+- `String.toCamelCase(string)` - Formats the given string in a camel-case format by removing all dashes and capitalizing the resulting words
+- `String.capitalize(string)` - Capitalizes the first letter of the given string
+- `String.escapeHTML(string)` - Replaces all HTML special characters in the given string with the equivalent HTML entities
+- `String.removeScripts(string)` - Removes all "script" tags from the given string
+- `String.removeTags(string)` - Removes all HTML tags from the given string
+- `String.isEmpty(string)` - Returns true if the given string is empty; otherwise, returns false
+- `String.contains(string, pattern)` - Returns true if the given string contains the specified pattern; otherwise, returns false
+- `String.contains(string, pattern)` - Returns true if the given string contains the specified pattern; otherwise, returns false
+- `String.startsWith(string, pattern)` - Returns true if the given string starts with the specified pattern; otherwise, returns false
+- `String.endsWith(string, pattern)` - Returns true if the given string ends with the specified pattern; otherwise, returns false
+- `String.format(string, replacement)` - Creates a template based on the given string, and replaces its properties with those of the specified replacement object
+- `String.toUnicode(string)` - Returns a Unicode representation of the given string
+
 
 ### Usage
 
