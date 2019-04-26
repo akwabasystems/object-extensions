@@ -1,6 +1,8 @@
 import "./src/functions";
 import "./src/arrays";
 import "./src/numbers";
+import "./src/strings";
+
 
 import abstractFunction     from "./src/abstract-function";
 import arrayFrom            from "./src/array-from";
