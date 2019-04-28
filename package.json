@@ -36,7 +36,6 @@
     "node": ">= 4.2.0"
   },
   "license": "MIT",
-  "optionalDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/akwabasystems/object-extensions.git"

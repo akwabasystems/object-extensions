@@ -1,4 +1,5 @@
-import isNumber from "../is-number";
+import isNumber     from "../is-number";
+import isFunction   from "../is-function";
 
 
 /**
@@ -66,6 +67,28 @@ Array.clear = (array) => {
  * Returns true if the given array is empty; otherwise, returns false
  */
 Array.isEmpty = (array) => array.length === 0;
+
+
+/**
+ * Returns true if the given array contains the specified item; otherwise, returns false
+ *
+ * @param {Array} array     the array to check
+ * @param {Object} item     the item to look for
+ * Returns true if the given array contains the specified item;  otherwise, returns false
+ */
+Array.contains = (array, item) => {
+    if (isFunction(array.indexOf)) {
+        return array.indexOf(item) !== -1;
+    }
+    
+    for (let i = 0, len = array.length; i < len; i++) {
+        if (array[i] === item) {
+            return true;
+        }
+    }
+
+    return false;
+};
 
 
 /**
