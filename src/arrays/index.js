@@ -80,7 +80,7 @@ Array.contains = (array, item) => {
     if (isFunction(array.indexOf)) {
         return array.indexOf(item) !== -1;
     }
-    
+
     for (let i = 0, len = array.length; i < len; i++) {
         if (array[i] === item) {
             return true;
