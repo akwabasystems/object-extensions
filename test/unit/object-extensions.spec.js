@@ -138,4 +138,10 @@ describe("Object extensions", () => {
         expect(currentStep.done).toBeTruthy();
     });
 
+    it("should generate unique identifiers", () => {
+        const uuid = Extensions.generateUUID();
+        expect(Extensions.isString(uuid)).toBeTruthy();
+        expect(uuid.length).toBe(36);
+    });
+
 });

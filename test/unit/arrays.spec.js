@@ -45,4 +45,16 @@ describe("Array extensions", () => {
         expect(partitions[0]).toEqual([2, 4, 6, 8, 10]);
         expect(partitions[1]).toEqual([1, 3, 5, 7, 9]);
     });
+
+    it("should specifies whether an array contains an item", () => {
+        const numbers = [1, 2, 3];
+        expect(Array.contains(numbers, 1)).toBeTruthy();
+
+        const indexOf = Array.prototype.indexOf;
+        Array.prototype.indexOf = {};
+        expect(Array.contains(numbers, 3)).toBeTruthy();
+        expect(Array.contains(numbers, 5)).toBeFalsy();
+        Array.prototype.indexOf = indexOf;
+    });
+
 });

@@ -18,6 +18,7 @@ import isUndefined          from "./src/is-undefined";
 import objectFrom           from "./src/object-from";
 import copyPropertiesFrom   from "./src/copy-from";
 import makeIterable         from "./src/make-iterable";
+import generateUUID         from "./src/generate-uuid";
 
 
 export default {
@@ -34,5 +35,6 @@ export default {
     isUndefined,
     objectFrom,
     copyPropertiesFrom,
-    makeIterable
+    makeIterable,
+    generateUUID
 };
