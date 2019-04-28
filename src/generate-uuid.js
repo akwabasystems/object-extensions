@@ -2,7 +2,7 @@
 export default () => {
     /* eslint-disable no-bitwise, no-magic-numbers */
     let d = new Date().getTime();
-    
+
     return "xxxxxxxx-xxxx-4xxx-Yxxx-xxxxxxxxxxxx".replace(/[xY]/g, (c) => {
         const r = Math.floor((d + Math.random() * 16) % 16);
         d = Math.floor(d / 16);
